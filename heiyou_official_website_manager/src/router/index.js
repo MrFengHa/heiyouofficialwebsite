@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import MainView from "../components/MainView";
 import CaseTypeList from "../components/caseManager/caseType/CaseTypeList";
 import CaseTypeManager from "../components/caseManager/caseType/CaseTypeManager";
+import CaseList from "../components/caseManager/case/CaseList";
 
 Vue.use(Router)
 
@@ -15,6 +16,7 @@ export default new Router({
       children: [
         {path: "/caseType/caseTypeList", component: CaseTypeList},
         {path: "/caseType/caseTypeToAdd", component: CaseTypeManager},
+        {path: "/case/caseList", component: CaseList},
       ]
     }
   ]

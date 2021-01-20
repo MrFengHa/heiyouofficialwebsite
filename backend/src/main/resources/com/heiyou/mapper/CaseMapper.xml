@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heiyou.mapper.CaseMapper">
+    <resultMap id="case" type="com.heiyou.entity.Case">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="caseTypeId" property="caseTypeId"></result>
+
+        <result column="exhibitionTypeId" property="exhibitionTypeId"></result>
+        <association property="caseType" javaType="com.heiyou.entity.CaseType">
+            <result column="id" property="id"></result>
+            <result column="cnName" property="cnName"></result>
+            <result column="enName" property="enName"></result>
+        </association>
+        <association property="exhibitionType" javaType="com.heiyou.entity.ExhibitionType">
+            <result column="id" property="id"></result>
+            <result column="name" property="name"></result>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="case">
+        select * from t_case c,t_exhitionType et, t_casetype ct where c.exhibitionTypeId=et.id and c.caseTypeId = ct.id;
+    </select>
+</mapper>
