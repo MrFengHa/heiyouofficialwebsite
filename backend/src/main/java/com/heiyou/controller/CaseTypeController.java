@@ -4,6 +4,8 @@ import com.heiyou.entity.CaseType;
 import com.heiyou.service.CaseTypeService;
 import com.heiyou.utils.FileUtil;
 import com.heiyou.utils.Message;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +20,7 @@ import java.util.List;
  * @Author 冯根源
  * @create 2021/1/18 12:01
  */
-
+@Slf4j
 @RestController
 @RequestMapping("casetype")
 @CrossOrigin
@@ -28,6 +30,7 @@ public class CaseTypeController {
     @Value("${myserviceres.path}")
     String serviceResPath;
 
+
     /**
      * 查询所有案例类型
      *
@@ -36,6 +39,7 @@ public class CaseTypeController {
     @GetMapping("findAll")
     public Message findAll() {
         List<CaseType> caseTypesList = caseTypeService.findAll();
+        log.debug(caseTypesList.toString()+"....................................................................");
         return Message.ok().data("caseTypesList", caseTypesList);
     }
 
