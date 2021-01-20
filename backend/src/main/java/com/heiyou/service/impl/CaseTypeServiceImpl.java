@@ -37,4 +37,14 @@ public class CaseTypeServiceImpl implements CaseTypeService {
     public void save(CaseType caseType) {
         caseTypeMapper.save(caseType);
     }
+
+    /**
+     * 删除
+     *
+     * @param id
+     */
+    @Override
+    public void deleteCaseType(Integer id) {
+        caseTypeMapper.deleteCaseType(id);
+    }
 }

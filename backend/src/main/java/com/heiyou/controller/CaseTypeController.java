@@ -4,7 +4,6 @@ import com.heiyou.entity.CaseType;
 import com.heiyou.service.CaseTypeService;
 import com.heiyou.utils.FileUtil;
 import com.heiyou.utils.Message;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -55,6 +54,23 @@ public class CaseTypeController {
         }catch (Exception e){
             e.printStackTrace();
             FileUtil.deleteDir(tempFile);
+        }
+
+        return Message.ok();
+    }
+
+    @PostMapping("deleteCaseType")
+    public Message deleteCaseType(@RequestBody CaseType caseType){
+
+        File tempFile = new File(serviceResPath + "casetype/"+caseType.getEnName()+"/");
+
+        try {
+            caseTypeService.deleteCaseType(caseType.getId());
+            FileUtil.deleteDir(tempFile);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return Message.error();
         }
 
         return Message.ok();

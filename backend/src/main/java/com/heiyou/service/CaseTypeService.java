@@ -22,4 +22,10 @@ public interface CaseTypeService {
      * @param caseType
      */
     void save(CaseType caseType);
+
+    /**
+     * 删除
+     * @param id
+     */
+    void deleteCaseType(Integer id);
 }

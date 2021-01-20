@@ -5,6 +5,10 @@
         insert into t_casetype(id, cnName, enName) values (#{id},#{cnName},#{enName})
     </insert>
 
+    <delete id="deleteCaseType" parameterType="integer">
+        delete from t_casetype where id=#{id}
+    </delete>
+
     <select id="findAll" resultType="com.heiyou.entity.CaseType">
         select * from t_casetype
     </select>

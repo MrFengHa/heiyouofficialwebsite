@@ -61,7 +61,7 @@
           id: 0,
           cnName: "",
           enName: "",
-          image: ""
+
         },
         isUpdate: false,
         imageFileList: [],
@@ -110,10 +110,8 @@
               data.append("images",this.imageFileList[i].raw);
             }
 
-            for (let key in this.formValue) {
-              if (key != "exhibitionHall") {
-                data.append(key, this.formValue[key])
-              }
+           for (let key in this.formValue){
+             data.append(key,this.formValue[key])
             }
             const _loading = loading(`文件上传中，请稍后...`)
 
@@ -131,7 +129,7 @@
             }
 
 
-            this.addCaseType(data, _loading, config, _this)
+            this.addCaseType(data, _loading, config)
 
 
           } else {
@@ -144,7 +142,8 @@
         });
       },
 
-      addCaseType(data, _loading, config, _this) {
+      addCaseType(data, _loading, config) {
+        let _this = this;
         this.$http.post("casetype/addCaseType", data, config).then((res) => {
 
           _loading.close(); // 关闭加载框

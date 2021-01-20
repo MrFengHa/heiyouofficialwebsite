@@ -25,4 +25,10 @@ public interface CaseTypeMapper {
      * @param caseType
      */
     void save(CaseType caseType);
+
+    /**
+     * 删除案例类型
+     * @param id
+     */
+    void deleteCaseType(Integer id);
 }

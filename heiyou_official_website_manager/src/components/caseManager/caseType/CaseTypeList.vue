@@ -63,13 +63,16 @@
         },
 
         handleEdit(index, row) {
-          this.$router.push({path: "/exhibitionHall/exhibitionHallToUpdate?id="+row.id});
+          //this.$router.push({path: "/exhibitionHall/exhibitionHallToUpdate?id="+row.id});
+          this.$message({
+            message:"该功能正在开发中。。。",
+            type:"info"
+          })
         },
         handleDelete(index, row) {
           let _this = this;
-          this.$http.post("exhibitionHall/deleteExhibitionHall",row).then((res)=>{
+          this.$http.post("casetype/deleteCaseType",row).then((res)=>{
             if (res.data.success) {
-              console.log(res.data.success)
               this.$message({
                   message: "删除成功",
                   type: 'success',
