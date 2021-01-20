@@ -8,6 +8,13 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'element-ui/lib/theme-chalk/index.css';
 import ElementUI from 'element-ui';
+import axios from 'axios';
+
+axios.defaults.baseURL = "http://localhost:8080/"; // 关键步骤–填写后台请求统一的地址
+axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
+
+Vue.prototype.$http=axios;
+
 Vue.use(ElementUI);
 // Install BootstrapVue
 Vue.use(BootstrapVue)
