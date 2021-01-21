@@ -1,5 +1,7 @@
 package com.heiyou.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,8 +18,12 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @ToString
 @Accessors(chain = true)
+@ApiModel(value = "com.heiyou.entity.CaseType",description = "案例类型实体类")
 public class CaseType {
+    @ApiModelProperty(value = "id")
     private Integer id;
+    @ApiModelProperty(value = "中文名称")
     private String cnName;
+    @ApiModelProperty(value = "英文名称")
     private String enName;
 }

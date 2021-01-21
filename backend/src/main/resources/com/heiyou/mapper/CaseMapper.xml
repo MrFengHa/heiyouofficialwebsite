@@ -13,12 +13,15 @@
             <result column="enName" property="enName"></result>
         </association>
         <association property="exhibitionType" javaType="com.heiyou.entity.ExhibitionType">
-            <result column="id" property="id"></result>
-            <result column="name" property="name"></result>
+            <result column="etid" property="id"></result>
+            <result column="etname" property="name"></result>
         </association>
     </resultMap>
+    <insert id="save" parameterType="com.heiyou.entity.Case">
+        insert into t_case(id,name,caseTypeId,exhibitionTypeId) values (#{id},#{name},#{caseTypeId},#{exhibitionTypeId})
+    </insert>
 
     <select id="findAll" resultMap="case">
-        select * from t_case c,t_exhitionType et, t_casetype ct where c.exhibitionTypeId=et.id and c.caseTypeId = ct.id;
+        select c.id,c.name,c.caseTypeId,exhibitionTypeId,et.id etid,et.name etname,ct.id,ct.cnName,ct.enName,ct.`desc` from t_case c,t_exhitionType et, t_casetype ct where c.exhibitionTypeId=et.id and c.caseTypeId = ct.id;
     </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.heiyou.service;
 
 import com.heiyou.entity.Case;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -16,4 +17,12 @@ public interface CaseService {
      * @return
      */
    List<Case> findAll();
+
+    /**
+     * 保存案例
+     * @param c
+     * @param files
+     * @return
+     */
+   boolean save(Case c, MultipartFile[] files);
 }

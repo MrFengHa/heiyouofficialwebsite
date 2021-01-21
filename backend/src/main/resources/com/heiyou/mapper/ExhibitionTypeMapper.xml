@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heiyou.mapper.ExhibitionTypeMapper">
+    <select id="readAll" resultType="com.heiyou.entity.ExhibitionType">
+        select *
+        from t_exhitionType
+    </select>
+    <select id="readById" resultType="com.heiyou.entity.ExhibitionType" parameterType="integer">
+        select * from  t_exhitionType where id = #{id}
+    </select>
+
+</mapper>

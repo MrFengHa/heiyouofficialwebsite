@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <el-button type="primary"  @click="toAddCaseType()" round>添加</el-button>
+      <el-button type="primary"  @click="toAddCase()" round>添加</el-button>
     </div>
     <el-table
       :data="tableData.filter(data => !search || data.cnName.toLowerCase().includes(search.toLowerCase()))"
@@ -12,15 +12,15 @@
       </el-table-column>
       <el-table-column
         label="项目名称"
-        prop="projectName">
+        prop="name">
       </el-table-column>
       <el-table-column
         label="案例类型"
-        prop="caseType">
+        prop="caseType.cnName">
       </el-table-column>
       <el-table-column
         label="展示类型"
-        prop="exhibitionType">
+        prop="exhibitionType.name">
       </el-table-column>
       <el-table-column
         align="right">
@@ -55,14 +55,13 @@
         }
       },
       methods: {
-        toAddCaseType() {
-          this.$router.push({path: "/caseType/caseTypeToAdd"});
+        toAddCase() {
+          this.$router.push({path: "/case/caseToAdd"});
         },
         findAll(){
           let _this = this;
           this.$http.get("case/findAll").then((res)=>{
-            console.log(res.data)
-           // _this.tableData = res.data.data.caseTypesList;
+            _this.tableData = res.data.data.caseList;
           })
         },
 

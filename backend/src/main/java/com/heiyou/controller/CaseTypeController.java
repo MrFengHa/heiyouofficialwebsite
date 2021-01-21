@@ -4,6 +4,10 @@ import com.heiyou.entity.CaseType;
 import com.heiyou.service.CaseTypeService;
 import com.heiyou.utils.FileUtil;
 import com.heiyou.utils.Message;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +28,7 @@ import java.util.List;
 @RestController
 @RequestMapping("casetype")
 @CrossOrigin
+@Api(tags  ="案例类型接口")
 public class CaseTypeController {
     @Autowired
     CaseTypeService caseTypeService;
@@ -36,13 +41,16 @@ public class CaseTypeController {
      *
      * @return
      */
+
+    @ApiOperation("查询所有案例类型")
+
     @GetMapping("findAll")
     public Message findAll() {
         List<CaseType> caseTypesList = caseTypeService.findAll();
-        log.debug(caseTypesList.toString()+"....................................................................");
-        return Message.ok().data("caseTypesList", caseTypesList);
+        return Message.ok().data("caseTypeList", caseTypesList);
     }
 
+    @ApiOperation("添加案例类型")
     @PostMapping("addCaseType")
     public Message addCaseType(CaseType caseType, @RequestParam MultipartFile[] images) {
         File tempFile = new File(serviceResPath + "casetype/"+caseType.getEnName()+"/");
@@ -63,6 +71,7 @@ public class CaseTypeController {
         return Message.ok();
     }
 
+    @ApiOperation("删除案例类型")
     @PostMapping("deleteCaseType")
     public Message deleteCaseType(@RequestBody CaseType caseType){
 

@@ -19,4 +19,10 @@ public interface CaseMapper {
      * @return
      */
     List<Case> findAll();
+
+    /**
+     * 将数据保存到数据库
+     * @param c
+     */
+    void save(Case c);
 }
