@@ -11,21 +11,25 @@ import java.io.File;
 public class FileUtil {
     /**
      * 删除文件夹
+     *
      * @param dir
      */
-    public static void deleteDir(File dir){
-        for (File file : dir.listFiles()) {
-            file.delete();
+    public static void deleteDir(File dir) {
+        if (!dir.isDirectory()) {
+            for (File file : dir.listFiles()) {
+                file.delete();
+            }
+            dir.delete();
         }
-        dir.delete();
     }
 
     /**
      * 如果文件夹不存在那就创建文件夹
+     *
      * @param dir
      */
-    public static void createDir(File dir){
-        if (!dir.isDirectory()){
+    public static void createDir(File dir) {
+        if (!dir.isDirectory()) {
             dir.mkdirs();
         }
     }

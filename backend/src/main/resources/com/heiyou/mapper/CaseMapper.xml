@@ -8,7 +8,7 @@
 
         <result column="exhibitionTypeId" property="exhibitionTypeId"></result>
         <association property="caseType" javaType="com.heiyou.entity.CaseType">
-            <result column="id" property="id"></result>
+            <result column="ctid" property="id"></result>
             <result column="cnName" property="cnName"></result>
             <result column="enName" property="enName"></result>
         </association>
@@ -25,6 +25,6 @@
     </delete>
 
     <select id="findAll" resultMap="case">
-        select c.id,c.name,c.caseTypeId,exhibitionTypeId,et.id etid,et.name etname,ct.id,ct.cnName,ct.enName,ct.`desc` from t_case c,t_exhitionType et, t_casetype ct where c.exhibitionTypeId=et.id and c.caseTypeId = ct.id;
+        select c.id,c.name,c.caseTypeId,exhibitionTypeId,et.id etid,et.name etname,ct.id ctid,ct.cnName,ct.enName,ct.`desc` from t_case c,t_exhitionType et, t_casetype ct where c.exhibitionTypeId=et.id and c.caseTypeId = ct.id;
     </select>
 </mapper>

@@ -4,7 +4,14 @@
       <img src="../../assets/homePageRes/sy_box_two.jpg" style="max-width: 1000px;width: 100%">
       <ul class="nav_two">
         <li v-for="(casetype,index) in caseTypeData">
-         <a href="http://www.baidu.com" @mouseover="setTab(index)" :class="currentIndex==index?'hover':''" >{{casetype.cnName}}\{{casetype.enName}}</a>
+          <a href="http://www.baidu.com" @mouseover="setTab(index,casetype.id)" :class="currentIndex==index?'hover':''">{{casetype.cnName}}\{{casetype.enName}}</a>
+        </li>
+      </ul>
+      <ul class="box_two">
+        <li v-for="item in showCaseData" :key="item.id" >
+          <a href="www.baidu.com" :title="item.name">
+            <img :src="'http://localhost:8080/case/'+item.name+'/1.jpg'">
+          </a>
         </li>
       </ul>
     </div>
@@ -14,35 +21,53 @@
 </template>
 
 <script>
-  // function setTab(name,cursel,n){
-  //   for(i=1;i<=n;i++){
-  //     var menu=document.getElementById(name+i);
-  //     var con=document.getElementById("con_"+name+"_"+i);
-  //     menu.className=i==cursel?"hover":"";
-  //     con.style.display=i==cursel?"block":"none";
-  //   }
-  // }
+
   export default {
     name: "ClassicCase",
     data() {
-      return{
-        caseTypeData:[],
-        currentIndex:0
+      return {
+        caseTypeData: [],
+        caseData:[],
+        showCaseData:[],
+        currentIndex: 0
       }
     },
-    methods:{
-      findAllCaseType(){
+    methods: {
+      findAllCaseType() {
         let _this = this;
-        this.$http.get("casetype/findAll").then((res)=>{
-        _this.caseTypeData =res.data.data.caseTypesList;
+        this.$http.get("casetype/findAll").then((res) => {
+
+          _this.caseTypeData = res.data.data.caseTypeList;
+
         })
       },
-      setTab(index){
+      findAllCase() {
+        let _this = this;
+        this.$http.get("case/findAll").then((res) => {
+
+          _this.caseData = res.data.data.caseList;
+
+        })
+      },
+      setTab(index,id) {
         this.currentIndex = index;
+        this.showCaseData.length = 0;
+        //案例类型相同的显示到界面上
+        for (let caseData of this.caseData){
+          console.log(caseData)
+          if (id==caseData.caseType.id){
+
+            this.showCaseData.push(caseData);
+
+          }
+
+        }
+
       }
     },
     created() {
       this.findAllCaseType();
+      this.findAllCase();
     }
   }
 </script>
@@ -51,6 +76,7 @@
   div {
     display: block;
   }
+
   * {
     padding: 0;
     margin: 0;
@@ -93,12 +119,14 @@
     margin-inline-end: 0px;
     padding-inline-start: 40px;
   }
+
   .sy_box_two .nav_two li {
     float: left;
     width: 25%;
     text-align: center;
     overflow: hidden;
   }
+
   li {
     display: list-item;
     text-align: -webkit-match-parent;
@@ -133,24 +161,61 @@
   }
 
 
-
-
   a {
-    font-size: 11px;
+    font-size: 12px;
     text-decoration: none;
     color: #666;
     blr: expression(this.onFocus=this.blur());
     outline: none;
   }
+
   a:-webkit-any-link {
     color: -webkit-link;
     cursor: pointer;
     text-decoration: underline;
   }
 
+  .sy_box_two .box_two {
+    width: 100%;
+    max-width: 1000px;
+    padding-top: 40px;
+    overflow: hidden;
+  }
 
+  .sy_box_two .box_two li {
+    float: left;
+    width: 333px;
+    font-family: microsoft yahei;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    line-height: 18px;
+  }
 
+  .sy_box_two .box_two li a {
+    width: 309px;
+    background-color: #eaeeef;
+    padding: 9px 7px;
+    padding-bottom: 15px;
+    margin: 0px 5px 40px 5px;
+    display: block;
+    font-family: microsoft yahei;
+    font-size: 14px;
+  }
+  img {
+    border: 0;
+  }
+  .sy_box_two .box_two li a img {
+    border: 4px solid #eaeeef;
+    margin: 0 auto;
+    width: 300px;
+    height: 169px;
+  }
 
-
+  .sy_box_two .box_two li .jies {
+    padding: 10px 0px 5px;
+    display: block;
+    overflow: hidden;
+  }
 
 </style>
