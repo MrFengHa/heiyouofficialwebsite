@@ -20,6 +20,9 @@
     <insert id="save" parameterType="com.heiyou.entity.Case">
         insert into t_case(id,name,caseTypeId,exhibitionTypeId) values (#{id},#{name},#{caseTypeId},#{exhibitionTypeId})
     </insert>
+    <delete id="delete" parameterType="integer">
+        delete from t_case where id = #{id}
+    </delete>
 
     <select id="findAll" resultMap="case">
         select c.id,c.name,c.caseTypeId,exhibitionTypeId,et.id etid,et.name etname,ct.id,ct.cnName,ct.enName,ct.`desc` from t_case c,t_exhitionType et, t_casetype ct where c.exhibitionTypeId=et.id and c.caseTypeId = ct.id;

@@ -27,34 +27,39 @@ public class CaseController {
 
     @Autowired
     CaseService caseService;
+
     @ApiOperation("查询所有案例")
     @GetMapping("findAll")
-    public Message findAll(){
+    public Message findAll() {
         try {
             List<Case> caseList = caseService.findAll();
-            return  Message.ok().data("caseList",caseList);
-        }catch (Exception e){
+            return Message.ok().data("caseList", caseList);
+        } catch (Exception e) {
             e.printStackTrace();
-            return  Message.error();
+            return Message.error();
         }
     }
 
     @ApiOperation("添加案例信息")
     @PostMapping("createCase")
-    public Message createCase(Case c, MultipartFile[] files){
+    public Message createCase(Case c, MultipartFile[] files) {
 
-            if( caseService.save(c,files)){
-               return Message.ok();
-            }else {
-                return Message.error();
-            }
+        if (caseService.save(c, files)) {
+            return Message.ok();
+        } else {
+            return Message.error();
+        }
     }
 
     @ApiOperation("删除案例信息")
     @PostMapping("deleteCase")
-    public Message deleteCase(@RequestBody Case c){
+    public Message deleteCase(@RequestBody Case c) {
+        if (caseService.delete(c)) {
+            return Message.ok();
+        } else {
+            return Message.error();
+        }
 
-        return Message.ok();
     }
 
 }

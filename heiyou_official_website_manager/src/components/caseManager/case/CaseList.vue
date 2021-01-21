@@ -74,7 +74,7 @@
         },
         handleDelete(index, row) {
           let _this = this;
-          this.$http.post("casetype/deleteCaseType",row).then((res)=>{
+          this.$http.post("case/deleteCase",row).then((res)=>{
             if (res.data.success) {
               this.$message({
                   message: "删除成功",

@@ -69,5 +69,27 @@ public class CaseServiceImpl implements CaseService {
 
     }
 
+    /**
+     * 删除案例信息
+     *
+     * @param c
+     * @return
+     */
+    @Override
+    public boolean delete(Case c) {
+        File tempFile = new File(serviceResPath + "case/" + c.getName() + "/");
+        try {
+            caseMapper.delete(c.getId());
+            //删除文件
+            FileUtil.deleteDir(tempFile);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+
+    }
+
 
 }

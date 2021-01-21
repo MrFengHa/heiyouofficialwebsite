@@ -25,4 +25,11 @@ public interface CaseService {
      * @return
      */
    boolean save(Case c, MultipartFile[] files);
+
+    /**
+     * 删除案例信息
+     * @param c
+     * @return
+     */
+    boolean delete(Case c);
 }
