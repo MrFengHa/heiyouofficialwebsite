@@ -7,6 +7,8 @@
     <services></services>
     <!--经典案例-->
     <classic-case></classic-case>
+<!--底部-->
+    <fooder></fooder>
   </div>
 </template>
 
@@ -14,9 +16,10 @@
   import Carousel from "./Carousel";
   import Services from "./Services";
   import ClassicCase from "./ClassicCase";
+  import Fooder from "./Fooder";
   export default {
     name: "HomePage",
-    components: {ClassicCase, Services, Carousel},
+    components: {Fooder, ClassicCase, Services, Carousel},
   }
 </script>
 

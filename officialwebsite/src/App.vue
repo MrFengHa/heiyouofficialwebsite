@@ -20,5 +20,7 @@
 
   }
 
-
+  body {
+    text-align: left;
+  }
 </style>

@@ -11,6 +11,8 @@
         <li v-for="item in showCaseData" :key="item.id" >
           <a href="www.baidu.com" :title="item.name">
             <img :src="'http://localhost:8080/case/'+item.name+'/1.jpg'">
+            <span class="jies">{{item.name}}</span>
+            <span class="alink">点击查看</span>
           </a>
         </li>
       </ul>
@@ -46,17 +48,16 @@
         this.$http.get("case/findAll").then((res) => {
 
           _this.caseData = res.data.data.caseList;
-
+          _this.setTab(0,12);
         })
+
       },
       setTab(index,id) {
         this.currentIndex = index;
         this.showCaseData.length = 0;
         //案例类型相同的显示到界面上
         for (let caseData of this.caseData){
-          console.log(caseData)
-          if (id==caseData.caseType.id){
-
+          if (id==caseData.caseTypeId){
             this.showCaseData.push(caseData);
 
           }
@@ -68,6 +69,7 @@
     created() {
       this.findAllCaseType();
       this.findAllCase();
+
     }
   }
 </script>
@@ -161,19 +163,7 @@
   }
 
 
-  a {
-    font-size: 12px;
-    text-decoration: none;
-    color: #666;
-    blr: expression(this.onFocus=this.blur());
-    outline: none;
-  }
 
-  a:-webkit-any-link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
-  }
 
   .sy_box_two .box_two {
     width: 100%;
@@ -217,5 +207,21 @@
     display: block;
     overflow: hidden;
   }
+
+  a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #666;
+    blr: expression(this.onFocus=this.blur());
+    outline: none;
+  }
+
+
+
+  /*a:-webkit-any-link {*/
+  /*  color: -webkit-link;*/
+  /*  cursor: pointer;*/
+  /*  text-decoration: underline;*/
+  /*}*/
 
 </style>
