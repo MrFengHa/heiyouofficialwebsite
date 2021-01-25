@@ -38,18 +38,47 @@
           QQ:767038992
         </dd>
         <dd>
-          <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=924459&site=qq&menu=yes" @click.prevent="noFunction()">
-            <img border="0" src="http://wpa.qq.com/pa?p=2:924459:51" alt="点击这里给我发消息" title="点击这里给我发消息" data-bd-imgshare-binded="1">
+          <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=924459&site=qq&menu=yes"
+             @click.prevent="noFunction()">
+            <img border="0" src="http://wpa.qq.com/pa?p=2:924459:51" alt="点击这里给我发消息" title="点击这里给我发消息"
+                 data-bd-imgshare-binded="1">
           </a>
         </dd>
       </div>
       <div class="syewm">
         <img src="../../assets/homePageRes/webeqcode.jpg" width="92" height="92" alt data-bd-imgshare-binded="1">
-          官方网站
+        官方网站
         <img src="../../assets/homePageRes/wxeqcode.jpg" width="92" height="92" alt data-bd-imgshare-binded="1">
-          官方微信
+        官方微信
       </div>
-      <div class=""></div>
+      <div class="syly">
+        <p class="clear10"></p>
+        <form action="http://www.baidu.com" method="post">
+          <input name="name" type="text" class="inpt" value="您的姓名" onclick="this.value=''"/>
+          <input name="mobile" type="text" class="inpt" value="您的电话" onclick="this.value=''"/>
+          <textarea name="content" id="textarea" cols="25" rows="4" class="textr"/>
+          <input class="btn" type="submit" value="提交" style="widthj:36px"/>
+        </form>
+        <p></p>
+        <div class="fx">
+          <p class="lf">
+            <a href="#" title="官方微博">
+              <img src="../../assets/homePageRes/wb_ico.jpg" width="24" height="23" alt class="display_i"
+                   data-bd-imgshare-binded="1">
+            </a>
+            <img src="../../assets/homePageRes/wx_ico.jpg" width="24" height="23" alt class="display_i"
+                 data-bd-imgshare-binded="1">
+          </p>
+          <div class="bdsharebuttonbox rf bdshare-button-style2-16" data-bd-bind="1611537005472">
+            <a href="#" class="bds_more" data-cmd="more"></a>
+            <a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
+            <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+            <a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a>
+            <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a>
+          </div>
+          <br>
+        </div>
+      </div>
     </div>
     <div class="zp_db">
       <div class="mainbox">
@@ -65,13 +94,11 @@
 <script>
   export default {
     name: "Fooder",
-    data(){
-      return{
-
-      }
+    data() {
+      return {}
     },
-    methods:{
-      noFunction(){
+    methods: {
+      noFunction() {
         this.$message({
             message: "该功能正在研发中........",
             type: 'info',
@@ -217,10 +244,118 @@
     text-align: center;
   }
 
+  /******************************************************************************************/
   #fooder .syly {
     float: right;
     width: 208px;
     overflow: hidden;
+  }
+
+  .clear10 {
+    margin-top: 10px;
+    overflow: hidden;
+  }
+
+  form {
+    display: block;
+    margin-top: 0em;
+  }
+
+  #fooder .syly .inpt {
+    width: 196px;
+    border: 1px solid #b1b1b1;
+    height: 25px;
+    line-height: 25px;
+    margin-bottom: 5px;
+    color: #a9a9a9;
+    padding: 0 5px;
+    background: none;
+  }
+
+  input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textfield;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    border-radius: 2px;
+  }
+
+  #fooder .syly .textr {
+    width: 196px;
+    border: 1px solid #b1b1b1;
+    color: #a9a9a9;
+    padding: 5px;
+    font-size: 12px;
+    background: none;
+  }
+
+  textarea {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textarea;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    column-count: initial !important;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    padding: 2px;
+    border-radius: 2px;
+  }
+
+  #fooder .syly .btn {
+    float: right;
+    border: 1px solid #b1b1b1;
+    height: 25px;
+    margin-top: 5px;
+    color: #a9a9a9;
+    padding: 0 5px;
+    background: none;
+  }
+
+  /*****************************************************************************************************/
+  #fooder .syly .fx {
+    padding-top: 5px;
+
+    overflow: hidden;
+    width: 165px;
+  }
+
+  .lf {
+    float: left;
   }
 
   .mainbox {
