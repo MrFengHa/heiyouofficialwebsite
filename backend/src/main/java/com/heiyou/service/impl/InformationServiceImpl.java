@@ -18,6 +18,7 @@ import java.util.List;
 public class InformationServiceImpl implements InformationService {
     @Autowired
     private InformationMapper informationMapper;
+
     /**
      * 查找所有
      *
@@ -26,5 +27,25 @@ public class InformationServiceImpl implements InformationService {
     @Override
     public List<Information> findAll() {
         return informationMapper.selectAll();
+    }
+
+    /**
+     * 保存用户留言信息
+     *
+     * @param information
+     * @return
+     */
+    @Override
+    public boolean save(Information information) {
+
+        try {
+            informationMapper.insert(information);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+
     }
 }

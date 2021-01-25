@@ -53,11 +53,11 @@
       </div>
       <div class="syly">
         <p class="clear10"></p>
-        <form action="http://www.baidu.com" method="post">
-          <input name="name" type="text" class="inpt" value="您的姓名" onclick="this.value=''"/>
-          <input name="mobile" type="text" class="inpt" value="您的电话" onclick="this.value=''"/>
-          <textarea name="content" id="textarea" cols="25" rows="4" class="textr"/>
-          <input class="btn" type="submit" value="提交" style="widthj:36px"/>
+        <form>
+          <input  type="text" class="inpt" value="您的姓名" v-model="informationForm.name" onclick="this.value=''"/>
+          <input   type="text" class="inpt" value="您的电话" v-model="informationForm.phoneNumber" onclick="this.value=''"/>
+          <textarea n id="textarea" cols="25" rows="4" v-model="informationForm.desc" class="textr"/>
+          <input class="btn" type="button" value="提交" style="widthj:36px" @click="addInformation"/>
         </form>
         <p></p>
         <div class="fx">
@@ -69,13 +69,13 @@
             <img src="../../assets/homePageRes/wx_ico.jpg" width="24" height="23" alt class="display_i"
                  data-bd-imgshare-binded="1">
           </p>
-          <div class="bdsharebuttonbox rf bdshare-button-style2-16" data-bd-bind="1611537005472">
-            <a href="#" class="bds_more" data-cmd="more"></a>
-            <a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
-            <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
-            <a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a>
-            <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a>
-          </div>
+<!--          <div class="bdsharebuttonbox rf bdshare-button-style2-16" data-bd-bind="1611537005472">-->
+<!--            <a href="#" class="bds_more" data-cmd="more"></a>-->
+<!--            <a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>-->
+<!--            <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>-->
+<!--            <a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren"></a>-->
+<!--            <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a>-->
+<!--          </div>-->
           <br>
         </div>
       </div>
@@ -95,7 +95,13 @@
   export default {
     name: "Fooder",
     data() {
-      return {}
+      return {
+        informationForm:{
+          name:"",
+          phoneNumber:"",
+          desc:""
+        }
+      }
     },
     methods: {
       noFunction() {
@@ -104,6 +110,18 @@
             type: 'info',
           }
         )
+      },
+      addInformation(){
+        this.$http.post("information/addInformation",this.informationForm).then(res=>{
+          if (res.data.success == true) {
+
+            this.$message({
+                message: "发送成功，请您等我我们的联系",
+                type: 'success',
+              }
+            );
+          }
+        })
       }
     }
   }

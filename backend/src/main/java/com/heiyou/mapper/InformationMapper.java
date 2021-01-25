@@ -18,4 +18,10 @@ public interface InformationMapper {
      * @return
      */
     List<Information> selectAll();
+
+    /**
+     * 添加用户留言信息
+     * @param information
+     */
+    void insert(Information information);
 }

@@ -16,4 +16,11 @@ public interface InformationService {
      * @return
      */
     List<Information> findAll();
+
+    /**
+     * 保存用户留言信息
+     * @param information
+     * @return
+     */
+    boolean save(Information information);
 }

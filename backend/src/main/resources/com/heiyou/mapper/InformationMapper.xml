@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heiyou.mapper.InformationMapper">
+    <insert id="insert" parameterType="com.heiyou.entity.Information">
+        insert into t_information(id, name, phoneNumber, `desc`) values (#{id},#{name},#{phoneNumber},#{desc})
+    </insert>
 
     <select id="selectAll" resultType="com.heiyou.entity.Information">
         select * from t_information

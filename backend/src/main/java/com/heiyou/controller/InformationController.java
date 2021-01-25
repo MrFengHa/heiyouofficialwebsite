@@ -1,18 +1,13 @@
 package com.heiyou.controller;
 
-import com.heiyou.entity.Case;
 import com.heiyou.entity.Information;
 import com.heiyou.service.InformationService;
 import com.heiyou.utils.Message;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,7 +20,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("message")
+@RequestMapping("information")
 @CrossOrigin
 @Api(tags = "用户消息留言接口")
 public class InformationController {
@@ -42,5 +37,18 @@ public class InformationController {
             e.printStackTrace();
             return Message.error();
         }
+    }
+
+    @ApiOperation("添加用户留言信息")
+    @PostMapping("addInformation")
+    public Message addInformation(@RequestBody Information information){
+
+        if (informationService.save(information)){
+            return Message.ok();
+        }else{
+            return Message.error();
+        }
+
+
     }
 }
