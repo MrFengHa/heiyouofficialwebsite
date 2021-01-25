@@ -19,6 +19,17 @@
 
     </el-submenu>
 
+    <el-submenu index="/information/">
+      <template slot="title">
+        <i class="el-icon-message"></i>
+        <span>用户留言</span>
+      </template>
+      <el-menu-item v-for="(item,i) in informationList" :key="i" :index="item.path" >
+        {{item.menuName}}
+      </el-menu-item>
+
+    </el-submenu>
+
 
   </el-menu>
 </template>
@@ -32,7 +43,11 @@
           {path: "/caseType/caseTypeList", menuName: "案例类型"},
           {path: "/case/caseList", menuName: "案例管理"},
 
-        ]
+        ],
+        informationList: [
+          {path: "/information/informationList", menuName: "留言列表"},
+        ],
+
 
 
       }

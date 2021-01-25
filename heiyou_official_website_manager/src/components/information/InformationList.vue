@@ -1,22 +1,23 @@
 <template>
   <div>
-    <div>
-      <el-button type="primary"  @click="toAddCaseType()" round>添加</el-button>
-    </div>
     <el-table
-      :data="tableData.filter(data => !search || data.cnName.toLowerCase().includes(search.toLowerCase()))"
+      :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
       style="width: 100% ; margin-top: 10px">
       <el-table-column
         label="序号"
         type="index">
       </el-table-column>
       <el-table-column
-        label="中文名称"
-        prop="cnName">
+        label="客户名称"
+        prop="name">
       </el-table-column>
       <el-table-column
-        label="英文名称"
-        prop="enName">
+        label="手机号码"
+        prop="phoneNumber">
+      </el-table-column>
+      <el-table-column
+        label="留言信息"
+        prop="desc">
       </el-table-column>
       <el-table-column
         align="right">
@@ -27,14 +28,7 @@
             placeholder="输入关键字搜索"/>
         </template>
         <template slot-scope="scope">
-          <el-button
-            size="mini"
-            type="success"
-            @click="handleEdit(scope.$index, scope.row)">更新</el-button>
-          <el-button
-            size="mini"
-            type="danger"
-            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+
         </template>
       </el-table-column>
     </el-table>
@@ -43,8 +37,7 @@
 
 <script>
     export default {
-
-        name: "CaseType",
+        name: "InformationList",
       data() {
         return {
           tableData: [],
@@ -52,14 +45,11 @@
         }
       },
       methods: {
-        toAddCaseType() {
-          this.$router.push({path: "/caseType/caseTypeToAdd"});
-        },
         findAll(){
           let _this = this;
-          this.$http.get("casetype/findAll").then((res)=>{
-            console.log(res.data.data.caseTypeList)
-            _this.tableData = res.data.data.caseTypeList;
+          this.$http.get("information/getAllInformation").then((res)=>{
+            console.log()
+            _this.tableData = res.data.data.informationList;
           })
         },
 
