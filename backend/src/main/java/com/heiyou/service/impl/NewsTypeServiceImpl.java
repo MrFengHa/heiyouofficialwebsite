@@ -29,4 +29,22 @@ public class NewsTypeServiceImpl implements NewsTypeService {
     public List<NewsType> findAll() {
         return newsTypeMapper.selectAll();
     }
+
+    /**
+     * 保存文章类型
+     *
+     * @param newsType
+     * @return
+     */
+    @Override
+    public boolean saveNewsType(NewsType newsType) {
+        try {
+            newsTypeMapper.insertNewsType(newsType);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
+    }
 }

@@ -6,7 +6,8 @@ import CaseTypeManager from "../components/caseManager/caseType/CaseTypeManager"
 import CaseList from "../components/caseManager/case/CaseList";
 import CaseManager from "../components/caseManager/case/CaseManager";
 import InformationList from "../components/information/InformationList";
-
+import NewsTypeList from "../components/news/newsType/NewsTypeList";
+import NewTypeManager from "../components/news/newsType/NewTypeManager";
 Vue.use(Router)
 
 export default new Router({
@@ -21,6 +22,8 @@ export default new Router({
         {path: "/case/caseList", component: CaseList},
         {path: "/case/caseToAdd", component: CaseManager},
         {path: "/information/informationList", component: InformationList},
+        {path: "/newsType/newsTypeList", component: NewsTypeList},
+        {path: "/newsType/newsTypeToAdd", component: NewTypeManager},
       ]
     }
   ]

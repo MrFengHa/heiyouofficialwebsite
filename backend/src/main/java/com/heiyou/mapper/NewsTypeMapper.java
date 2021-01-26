@@ -19,4 +19,9 @@ public interface NewsTypeMapper {
      */
     List<NewsType> selectAll();
 
+    /**
+     * 保存文章类型
+     * @param newsType
+     */
+    void insertNewsType(NewsType newsType);
 }

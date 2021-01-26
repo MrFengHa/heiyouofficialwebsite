@@ -20,12 +20,12 @@ import lombok.ToString;
 @ApiModel(value = "com.heiyou.entity.NewType", description = "文章类型")
 public class NewsType {
     @ApiModelProperty("文章类型id")
-    private Integer newType_id;
+    private Integer newsType_id;
 
     @ApiModelProperty("文章类型名称")
-    private String newType_name;
+    private String newsType_name;
 
     @ApiModelProperty("备注")
-    private String newType_desc;
+    private String newsType_desc;
 
 }

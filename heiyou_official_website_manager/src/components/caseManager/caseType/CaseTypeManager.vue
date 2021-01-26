@@ -164,7 +164,7 @@
 
           } else {
             this.$message({
-              message: res.data.msg,
+              message: res.data.message,
               type: 'error'
             });
           }

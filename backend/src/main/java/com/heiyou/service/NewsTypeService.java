@@ -17,4 +17,11 @@ public interface NewsTypeService {
      * @return
      */
     List<NewsType> findAll();
+
+    /**
+     * 保存文章类型
+     * @param newsType
+     * @return
+     */
+    boolean saveNewsType(NewsType newsType);
 }

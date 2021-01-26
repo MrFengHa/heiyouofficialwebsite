@@ -7,10 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,5 +39,19 @@ public class NewsTypeController {
            return Message.error();
        }
 
+    }
+
+    @ApiOperation("保存新闻类型")
+    @PostMapping("saveNewsType")
+    public Message saveNewsType(@RequestBody NewsType newsType){
+        System.out.println(newsType);
+        if (newsType.getNewsType_name()==null||newsType.getNewsType_name().equals("")){
+            return  Message.error().message("数据没有传输");
+        }
+       if (newsTypeService.saveNewsType(newsType)){
+           return Message.ok();
+       }else {
+           return Message.error();
+       }
     }
 }
