@@ -1,5 +1,6 @@
 package com.heiyou.utils;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -8,17 +9,18 @@ import java.util.Map;
 //统一返回结果的类
 @Data
 public class Message {
-
+    @ApiModelProperty("是否成功")
     private Boolean success;
-
+    @ApiModelProperty("返回码")
     private Integer code;
-
+    @ApiModelProperty("返回消息")
     private String message;
-
+    @ApiModelProperty("返回数据")
     private Map<String, Object> data = new HashMap<String, Object>();
 
     //把构造方法私有
-    private Message() {}
+    private Message() {
+    }
 
     //成功静态方法
     public static Message ok() {
@@ -38,27 +40,27 @@ public class Message {
         return message;
     }
 
-    public Message success(Boolean success){
+    public Message success(Boolean success) {
         this.setSuccess(success);
         return this;
     }
 
-    public Message message(String message){
+    public Message message(String message) {
         this.setMessage(message);
         return this;
     }
 
-    public Message code(Integer code){
+    public Message code(Integer code) {
         this.setCode(code);
         return this;
     }
 
-    public Message data(String key, Object value){
+    public Message data(String key, Object value) {
         this.data.put(key, value);
         return this;
     }
 
-    public Message data(Map<String, Object> map){
+    public Message data(Map<String, Object> map) {
         this.setData(map);
         return this;
     }
