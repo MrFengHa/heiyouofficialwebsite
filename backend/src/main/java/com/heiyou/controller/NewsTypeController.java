@@ -44,7 +44,7 @@ public class NewsTypeController {
     @ApiOperation("保存新闻类型")
     @PostMapping("saveNewsType")
     public Message saveNewsType(@RequestBody NewsType newsType){
-        System.out.println(newsType);
+
         if (newsType.getNewsType_name()==null||newsType.getNewsType_name().equals("")){
             return  Message.error().message("数据没有传输");
         }
@@ -53,5 +53,31 @@ public class NewsTypeController {
        }else {
            return Message.error();
        }
+    }
+    @ApiOperation("根据id查找对应的新闻类型")
+    @GetMapping("getNewsTypeById")
+    public Message getNewsTypeById(Integer newsType_id) {
+
+        try {
+            NewsType newsType = newsTypeService.findById(newsType_id);
+            return Message.ok().data("newsType",newsType);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Message.error();
+        }
+
+    }
+
+    @ApiOperation("更新文章类型信息")
+    @PostMapping("updateNewsType")
+    public Message updateNewsType(@RequestBody NewsType newsType){
+        if (newsType.getNewsType_name()==null||newsType.getNewsType_name().equals("")){
+            return  Message.error().message("数据没有传输");
+        }
+        if (newsTypeService.updateNewsType(newsType)){
+            return Message.ok();
+        }else {
+            return Message.error();
+        }
     }
 }

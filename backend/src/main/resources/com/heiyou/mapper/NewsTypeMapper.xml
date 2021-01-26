@@ -5,9 +5,15 @@
         insert into t_newsType()
         VALUES (#{newsType_id}, #{newsType_name}, #{newsType_desc})
     </insert>
+    <update id="updateNewsType">
+        update t_newsType set newsType_name=#{newsType_name},newsType_desc=#{newsType_desc} where newsType_id = #{newsType_id}
+    </update>
 
     <select id="selectAll" resultType="com.heiyou.entity.NewsType">
         select *
         from t_newsType
+    </select>
+    <select id="selectById" resultType="com.heiyou.entity.NewsType" parameterType="integer">
+        select * from t_newsType where newsType_id=#{newsType_id}
     </select>
 </mapper>

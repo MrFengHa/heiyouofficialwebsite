@@ -64,28 +64,30 @@
       },
 
       handleEdit(index, row) {
-        //this.$router.push({path: "/exhibitionHall/exhibitionHallToUpdate?id="+row.id});
-        this.$message({
-          message: "该功能正在开发中。。。",
-          type: "info"
-        })
+        this.$router.push({path: "/newsType/newsTypeToUpdate/"+row.newsType_id});
+
       },
       handleDelete(index, row) {
-        let _this = this;
-        this.$http.post("casetype/deleteCaseType", row).then((res) => {
-          if (res.data.success) {
-            this.$message({
-                message: "删除成功",
-                type: 'success',
-              }
-            );
-            _this.findAll()
-          } else {
-            this.$message({
-              message: "删除失败",
-              type: 'error'
-            });
-          }
+        // let _this = this;
+        // this.$http.post("casetype/deleteCaseType", row).then((res) => {
+        //   if (res.data.success) {
+        //     this.$message({
+        //         message: "删除成功",
+        //         type: 'success',
+        //       }
+        //     );
+        //     _this.findAll()
+        //   } else {
+        //     this.$message({
+        //       message: "删除失败",
+        //       type: 'error'
+        //     });
+        //   }
+        // })
+
+        this.$message({
+          message:"暂不支持删除功能",
+          type:'info'
         })
       },
       toAddNewType() {

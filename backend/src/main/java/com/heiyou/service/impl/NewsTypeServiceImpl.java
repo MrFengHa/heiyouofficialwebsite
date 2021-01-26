@@ -5,6 +5,7 @@ import com.heiyou.mapper.NewsTypeMapper;
 import com.heiyou.service.NewsTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -46,5 +47,33 @@ public class NewsTypeServiceImpl implements NewsTypeService {
             return false;
         }
 
+    }
+
+    /**
+     * 根据id查询文章类型
+     *
+     * @param newsType_id
+     * @return
+     */
+    @Override
+    public NewsType findById(Integer newsType_id) {
+        return newsTypeMapper.selectById(newsType_id);
+    }
+
+    /**
+     * 更新文章类型
+     *
+     * @param newsType
+     * @return
+     */
+    @Override
+    public boolean updateNewsType(NewsType newsType) {
+        try {
+            newsTypeMapper.updateNewsType(newsType);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }

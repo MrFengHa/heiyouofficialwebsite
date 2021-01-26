@@ -24,4 +24,18 @@ public interface NewsTypeService {
      * @return
      */
     boolean saveNewsType(NewsType newsType);
+
+    /**
+     * 根据id查询文章类型
+     * @param newsType_id
+     * @return
+     */
+    NewsType findById(Integer newsType_id);
+
+    /**
+     * 更新文章类型
+     * @param newsType
+     * @return
+     */
+    boolean updateNewsType(NewsType newsType);
 }

@@ -24,6 +24,7 @@ export default new Router({
         {path: "/information/informationList", component: InformationList},
         {path: "/newsType/newsTypeList", component: NewsTypeList},
         {path: "/newsType/newsTypeToAdd", component: NewTypeManager},
+        {path: "/newsType/newsTypeToUpdate/:newsType_id", component: NewTypeManager},
       ]
     }
   ]

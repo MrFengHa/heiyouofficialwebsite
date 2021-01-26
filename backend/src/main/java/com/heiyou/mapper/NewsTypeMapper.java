@@ -24,4 +24,17 @@ public interface NewsTypeMapper {
      * @param newsType
      */
     void insertNewsType(NewsType newsType);
+
+    /**
+     * 跟俊id查找
+     * @param newsType_id
+     * @return
+     */
+    NewsType selectById(Integer newsType_id);
+
+    /**
+     * 跟新文章类型
+     * @param newsType
+     */
+    void updateNewsType(NewsType newsType);
 }
