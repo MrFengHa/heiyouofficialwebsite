@@ -8,6 +8,8 @@ import CaseManager from "../components/caseManager/case/CaseManager";
 import InformationList from "../components/information/InformationList";
 import NewsTypeList from "../components/news/newsType/NewsTypeList";
 import NewTypeManager from "../components/news/newsType/NewTypeManager";
+import NewsList from "../components/news/news/NewsList";
+import NewsManager from "../components/news/news/NewsManager";
 Vue.use(Router)
 
 export default new Router({
@@ -25,6 +27,8 @@ export default new Router({
         {path: "/newsType/newsTypeList", component: NewsTypeList},
         {path: "/newsType/newsTypeToAdd", component: NewTypeManager},
         {path: "/newsType/newsTypeToUpdate/:newsType_id", component: NewTypeManager},
+        {path: "/news/newsList", component: NewsList},
+        {path: "/news/newsToAdd", component: NewsManager},
       ]
     }
   ]

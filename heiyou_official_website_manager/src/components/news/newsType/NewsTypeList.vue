@@ -4,7 +4,7 @@
       <el-button type="primary" @click="toAddNewType()" round>添加</el-button>
     </div>
     <el-table
-      :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+      :data="tableData.filter(data => !search || data.newsType_name.toLowerCase().includes(search.toLowerCase()))"
       style="width: 100% ; margin-top: 10px">
       <el-table-column
         label="序号"

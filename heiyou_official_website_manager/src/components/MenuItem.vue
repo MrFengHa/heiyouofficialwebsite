@@ -61,6 +61,7 @@
 
         informationList: [
           {path: "/newsType/newsTypeList", menuName: "新闻类型列表"},
+          {path: "/news/newsList", menuName: "新闻列表"}
         ],
 
 
