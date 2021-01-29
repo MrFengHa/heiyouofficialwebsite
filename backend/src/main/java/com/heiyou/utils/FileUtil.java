@@ -1,5 +1,7 @@
 package com.heiyou.utils;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.File;
 
 /**
@@ -38,5 +40,40 @@ public class FileUtil {
             }
         }
 
+    }
+
+    /**
+     * 获取上传文件的后缀名
+     * @param file
+     * @return
+     */
+    public static String getSuffix(MultipartFile file) {
+        if (file==null){
+            throw  new NullPointerException("上传文件中没有文件");
+        }
+        return getSuffix(file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".")));
+    }
+    /**
+     * 传入File根据文件获取后缀名
+     * @param file
+     * @return
+     */
+    public static String getSuffix(File file) {
+        if (file==null){
+            throw  new NullPointerException("没有文件");
+        }
+        return getSuffix(file.getName().substring(file.getName().lastIndexOf(".")));
+    }
+
+    /**
+     * 根据文件名称返回后缀名
+     * @param file
+     * @return
+     */
+    public static String getSuffix(String file) {
+        if (file==null||file.length()==0){
+            throw  new NullPointerException("字符串为空");
+        }
+        return file.substring(file.lastIndexOf("."));
     }
 }

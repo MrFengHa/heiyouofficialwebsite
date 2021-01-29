@@ -32,4 +32,11 @@ public interface NewsService {
      * @return
      */
     News findById(Integer news_id);
+
+    /**
+     * 保存新闻文章图片
+     * @param image
+     * @return
+     */
+    String saveNewsImage(MultipartFile image);
 }

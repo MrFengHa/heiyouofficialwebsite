@@ -49,9 +49,10 @@
           :show-upload-list="false"
           :on-success="handleSuccess"
           :format="['jpg','jpeg','png','gif']"
+          accept=".jpg,.png,.jpeg"
           :max-size="2048"
           multiple
-          action="/file/upload"
+          :action="uploadPath"
         >
           <Button icon="ios-cloud-upload-outline"></Button>
         </Upload>
@@ -163,11 +164,6 @@
         progressPercent: 0,
         show_progress: false,
         buttonTitle: "创建",
-        rules: {
-          newsType_name: [
-            {required: true, message: '请输入文章类型名称', trigger: 'blur'},
-          ]
-        },
         editorOption: {
           modules: {
             toolbar: {
@@ -187,6 +183,7 @@
           },
           theme: 'snow',
         },
+        uploadPath:"http://localhost:8080/news/saveNewsImage",
 
         rules: {
 
@@ -230,9 +227,9 @@
       },
       // 图片
       handleSuccess(res, file) {
-        let quill = this.$refs.QuillEditor.quill
+        let quill = this.$refs.myQuillEditor.quill
         let length = quill.getSelection().index;
-        quill.insertEmbed(length, 'image', res)
+        quill.insertEmbed(length, 'image', res.data.path)
         quill.setSelection(length + 1)
       },
       /*********************富文本组件上传图片End*************************/

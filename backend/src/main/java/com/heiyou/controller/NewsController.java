@@ -62,4 +62,23 @@ public class NewsController {
         }
     }
 
+    @ApiOperation("添加新闻富文本图片")
+    @PostMapping("saveNewsImage")
+    public Message saveNewsImage(MultipartFile file) {
+        if (file == null) {
+            return Message.error().message("传递的文件为空");
+        }
+        try {
+            String path = newsService.saveNewsImage(file);
+            //要传递的值的KEY
+            String pathKey = "path";
+            return Message.ok().data(pathKey, path);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Message.error().message(e.getMessage());
+        }
+
+
+    }
+
 }
