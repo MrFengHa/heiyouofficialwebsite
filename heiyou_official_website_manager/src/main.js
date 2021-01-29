@@ -6,12 +6,16 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios';
+import iView from 'iview'    //引入ivew库
+import 'iview/dist/styles/iview.css'    // 使用 CSS
+
 
 axios.defaults.baseURL = "http://localhost:8080/"; // 关键步骤–填写后台请求统一的地址
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 
 Vue.prototype.$http=axios;
 Vue.use(ElementUI);
+Vue.use(iView)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

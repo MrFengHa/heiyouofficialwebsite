@@ -24,4 +24,12 @@ public interface NewsMapper {
      * @param news
      */
     void insertNews(News news);
+
+
+    /**
+     * 根据ID查找新闻
+     * @param news_id
+     * @return
+     */
+    News selectById(Integer news_id);
 }

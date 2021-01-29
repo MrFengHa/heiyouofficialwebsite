@@ -10,6 +10,7 @@ import NewsTypeList from "../components/news/newsType/NewsTypeList";
 import NewTypeManager from "../components/news/newsType/NewTypeManager";
 import NewsList from "../components/news/news/NewsList";
 import NewsManager from "../components/news/news/NewsManager";
+import NewsSee from "../components/news/news/NewsSee";
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +30,7 @@ export default new Router({
         {path: "/newsType/newsTypeToUpdate/:newsType_id", component: NewTypeManager},
         {path: "/news/newsList", component: NewsList},
         {path: "/news/newsToAdd", component: NewsManager},
+        {path: "/news/newsSee/:news_Id", component: NewsSee},
       ]
     }
   ]

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heiyou.mapper.NewsMapper">
-    <resultMap id="news" type="com.heiyou.entity.News">
+    <resultMap id="newsMap" type="com.heiyou.entity.News">
         <id column="news_Id" property="news_Id"></id>
         <result column="news_Title" property="news_Title"></result>
         <result column="news_CoverUrl" property="news_CoverUrl"></result>
@@ -22,8 +22,12 @@
         )
     </insert>
 
-    <select id="selectAll" resultMap="news">
+    <select id="selectAll" resultMap="newsMap">
         select news_Id,news_Title,news_CoverUrl,news_Content,news_Desc,news.newsType_id,news_CreateTime,newsType_name,newsType_desc
         from t_news news,t_newsType newsType where news.newsType_id=newsType.newsType_id;
+    </select>
+    <select id="selectById" resultMap="newsMap" parameterType="integer">
+        select news_Id,news_Title,news_CoverUrl,news_Content,news_Desc,news.newsType_id,news_CreateTime,newsType_name,newsType_desc
+        from t_news news,t_newsType newsType where news.newsType_id=newsType.newsType_id and news.news_Id=#{news_id};
     </select>
 </mapper>

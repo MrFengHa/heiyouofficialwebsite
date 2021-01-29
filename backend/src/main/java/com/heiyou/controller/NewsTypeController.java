@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("newType")
+@RequestMapping("newsType")
 @CrossOrigin
 @Api(tags = "新闻类型接口")
 public class NewsTypeController {

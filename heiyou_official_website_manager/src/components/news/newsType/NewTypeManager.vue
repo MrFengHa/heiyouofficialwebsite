@@ -50,7 +50,7 @@
         let _this = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$http.post("newType/saveNewsType", this.formValue).then(res => {
+            this.$http.post("newsType/saveNewsType", this.formValue).then(res => {
               if (res.data.success == true) {
 
                 this.$message({
@@ -85,7 +85,7 @@
         let _this = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$http.post("newType/updateNewsType", this.formValue).then(res => {
+            this.$http.post("newsType/updateNewsType", this.formValue).then(res => {
               if (res.data.success == true) {
 
                 this.$message({
@@ -118,7 +118,7 @@
     },
     created() {
       if (this.$route.params.newsType_id != null) {
-        this.$http.get("newType/getNewsTypeById?newsType_id="+this.$route.params.newsType_id).then(res=>{
+        this.$http.get("newsType/getNewsTypeById?newsType_id="+this.$route.params.newsType_id).then(res=>{
           this.formValue= res.data.data.newsType;
           console.log(res.data)
         })

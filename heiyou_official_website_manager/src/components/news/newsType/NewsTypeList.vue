@@ -57,7 +57,7 @@
     methods: {
       findAll() {
         let _this = this;
-        this.$http.get("newType/getAllNewType").then((res) => {
+        this.$http.get("newsType/getAllNewType").then((res) => {
           console.log()
           _this.tableData = res.data.data.newTypeList;
         })

@@ -15,6 +15,9 @@ public class FileUtil {
      * @param dir
      */
     public static void deleteDir(File dir) {
+        if (dir == null) {
+            throw new NullPointerException("传过来的文件夹是空字符串");
+        }
         if (!dir.isDirectory()) {
             for (File file : dir.listFiles()) {
                 file.delete();
@@ -29,8 +32,11 @@ public class FileUtil {
      * @param dir
      */
     public static void createDir(File dir) {
-        if (!dir.isDirectory()) {
-            dir.mkdirs();
+        if (dir != null) {
+            if (!dir.isDirectory()) {
+                dir.mkdirs();
+            }
         }
+
     }
 }

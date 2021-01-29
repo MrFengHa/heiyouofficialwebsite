@@ -17,11 +17,6 @@
       >
       </el-table-column>
       <el-table-column
-        label="新闻类型"
-        prop="news_Title"
-      >
-      </el-table-column>
-      <el-table-column
         label="创建时间"
         prop="news_CreateTime">
       </el-table-column>
@@ -42,6 +37,11 @@
             placeholder="输入关键字搜索"/>
         </template>
         <template slot-scope="scope">
+          <el-button
+            size="mini"
+            type="info"
+            @click="seeNews(scope.$index, scope.row)">查看
+          </el-button>
           <el-button
             size="mini"
             type="success"
@@ -105,6 +105,9 @@
         },
         toAddNews() {
           this.$router.push({path: "/news/newsToAdd"});
+        },
+        seeNews(index, row){
+          this.$router.push({path: "/news/newsSee/"+row.news_Id});
         }
       },
       created() {
