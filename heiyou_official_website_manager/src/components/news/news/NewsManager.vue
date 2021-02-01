@@ -88,6 +88,7 @@
   import 'quill/dist/quill.bubble.css'
   import loading from "../../../loading";
   import {quillEditor} from 'vue-quill-editor'
+  import {baseUrl} from "../../../constant"
   // 工具栏配置
   const toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike'], //加粗，斜体，下划线，删除线
@@ -183,8 +184,7 @@
           },
           theme: 'snow',
         },
-        uploadPath:"http://localhost:8080/news/saveNewsImage",
-
+        uploadPath:baseUrl+ "news/saveNewsImage",
         rules: {
 
           news_Title: [
@@ -268,6 +268,7 @@
        * @param formName
        */
       resetForm(formName) {
+
         this.$refs[formName].resetFields();
       },
       /**
