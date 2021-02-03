@@ -39,4 +39,11 @@ public interface NewsService {
      * @return
      */
     String saveNewsImage(MultipartFile image);
+
+    /**
+     * 根据新闻类型查找新闻信息
+     * @param newsTypeName 新闻类型
+     * @return
+     */
+    List<News> findByNewTypeName(String newsTypeName);
 }

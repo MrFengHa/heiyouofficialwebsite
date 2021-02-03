@@ -6,7 +6,6 @@ import com.heiyou.service.NewsService;
 import com.heiyou.utils.FileUtil;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -114,5 +113,17 @@ public class NewsServiceImpl implements NewsService {
         image.transferTo(tempFile);
 
         return servicePath + newsImagesDir + "/" + coverImageFile + suffix;
+    }
+
+    /**
+     * 根据新闻类型查找新闻信息
+     *
+     * @param newsTypeName 新闻类型
+     * @return
+     */
+    @Override
+    public List<News> findByNewTypeName(String newsTypeName) {
+        return  newsMapper.selectNewsByNewsType(newsTypeName);
+
     }
 }

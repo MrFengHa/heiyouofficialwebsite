@@ -81,4 +81,17 @@ public class NewsController {
 
     }
 
+    @ApiOperation("根据新闻类型查找新闻")
+    @GetMapping("findByNewTypeName")
+    public Message findByNewTypeName(String newsTypeName) {
+
+        try {
+            List<News> newsList = newsService.findByNewTypeName(newsTypeName);
+            return Message.ok().data("newsList", newsList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Message.error();
+        }
+    }
+
 }

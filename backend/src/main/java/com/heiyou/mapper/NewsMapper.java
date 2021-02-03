@@ -32,4 +32,11 @@ public interface NewsMapper {
      * @return
      */
     News selectById(Integer news_id);
+
+    /**
+     * 根据news查询新闻信息
+     * @param newsTypeName
+     * @return
+     */
+    List<News> selectNewsByNewsType(String newsTypeName);
 }
