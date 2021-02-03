@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from "../components/Main";
+import HomePage from "../components/homePage/HomePage";
+import IntoBlackOil from "../components/intoBlackOli/IntoBlackOil";
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      component: Main
-    }
+    {path: '/', component: HomePage},
+    {path: '/intoBlackOli', component: IntoBlackOil}
   ]
 })

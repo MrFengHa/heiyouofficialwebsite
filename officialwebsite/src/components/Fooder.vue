@@ -46,9 +46,9 @@
         </dd>
       </div>
       <div class="syewm">
-        <img src="../../assets/homePageRes/webeqcode.jpg" width="92" height="92" alt data-bd-imgshare-binded="1">
+        <img src="../assets/fooder/webeqcode.jpg" width="92" height="92" alt data-bd-imgshare-binded="1">
         官方网站
-        <img src="../../assets/homePageRes/wxeqcode.jpg" width="92" height="92" alt data-bd-imgshare-binded="1">
+        <img src="../assets/fooder/wxeqcode.jpg" width="92" height="92" alt data-bd-imgshare-binded="1">
         官方微信
       </div>
       <div class="syly">
@@ -63,10 +63,10 @@
         <div class="fx">
           <p class="lf">
             <a href="#" title="官方微博">
-              <img src="../../assets/homePageRes/wb_ico.jpg" width="24" height="23" alt class="display_i"
+              <img src="../assets/fooder/wb_ico.jpg" width="24" height="23" alt class="display_i"
                    data-bd-imgshare-binded="1">
             </a>
-            <img src="../../assets/homePageRes/wx_ico.jpg" width="24" height="23" alt class="display_i"
+            <img src="../assets/fooder/wx_ico.jpg" width="24" height="23" alt class="display_i"
                  data-bd-imgshare-binded="1">
           </p>
 <!--          <div class="bdsharebuttonbox rf bdshare-button-style2-16" data-bd-bind="1611537005472">-->

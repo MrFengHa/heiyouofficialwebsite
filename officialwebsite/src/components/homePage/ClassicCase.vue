@@ -1,7 +1,7 @@
 <template>
   <div class="sy_box_two">
     <div class="mainbox">
-      <img src="../../assets/homePageRes/sy_box_two.jpg" style="max-width: 1000px;width: 100%">
+      <img src="../../assets/homePageRes/sy_box_two.jpg">
       <ul class="nav_two">
         <li v-for="(casetype,index) in caseTypeData">
           <a href="http://www.baidu.com" @mouseover="setTab(index,casetype.id)" :class="currentIndex==index?'hover':''">{{casetype.cnName}}\{{casetype.enName}}</a>
@@ -75,19 +75,9 @@
 </script>
 
 <style scoped>
-  div {
-    display: block;
-  }
-
-  * {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-  }
-
 
   .sy_box_two {
-    width: 100%;
+    width: 1900px;
     margin: 0 auto;
     min-height: 476px;
     background-color: #313236;

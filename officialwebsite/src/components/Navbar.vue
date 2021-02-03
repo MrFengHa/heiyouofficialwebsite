@@ -2,7 +2,7 @@
   <div>
     <b-navbar class="navbarClass" toggleable="lg" type="dark"  >
       <b-navbar-brand href="/">
-        <img  class="navbarLogo" src="../../assets/homePageRes/logo.jpg">
+        <img  class="navbarLogo" src="../assets/navbar/logo.jpg">
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -10,7 +10,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item href="#">首页</b-nav-item>
-          <b-nav-item href="#">走进黑油</b-nav-item>
+          <b-nav-item href="#/intoBlackOli">走进黑油</b-nav-item>
           <b-nav-item href="#">集团业务</b-nav-item>
           <b-nav-item href="#">公司新闻</b-nav-item>
           <b-nav-item href="#">上市公司</b-nav-item>
@@ -47,7 +47,12 @@
 
 <script>
   export default {
-    name: "Navbar"
+    name: "Navbar",
+    data(){
+      return{
+        intoBlackOli : ""
+      }
+    }
   }
 </script>
 

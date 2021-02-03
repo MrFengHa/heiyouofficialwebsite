@@ -9,10 +9,7 @@
     <classic-case></classic-case>
     <!--我们的伙伴-->
     <our-partner></our-partner>
-    <!--新闻-->
-    <news></news>
-    <!--底部-->
-    <fooder></fooder>
+
   </div>
 </template>
 
@@ -20,13 +17,11 @@
   import Carousel from "./Carousel";
   import Services from "./Services";
   import ClassicCase from "./ClassicCase";
-  import Fooder from "./Fooder";
   import OurPartner from "./OurPartner";
-  import News from "./News";
 
   export default {
     name: "HomePage",
-    components: {News, OurPartner, Fooder, ClassicCase, Services, Carousel},
+    components: { OurPartner, ClassicCase, Services, Carousel},
   }
 </script>
 

@@ -66,6 +66,7 @@ export default {
   }
 
   .sy_box_three .lfwz_three {
+    text-align: left;
     float: left;
     width: 400px;
     font: 16px/30px microsoft yahei;

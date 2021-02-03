@@ -1,13 +1,24 @@
 <template>
   <div id="app" style="text-align: center">
-    <!--    <img src="./assets/logo.png">-->
+    <!--导航栏-->
+    <navbar style=" max-width: 1900px;"></navbar>
     <router-view/>
+
+    <!--新闻-->
+    <news></news>
+    <!--底部-->
+    <fooder></fooder>
   </div>
 </template>
 
 <script>
+  import Navbar from "./components/Navbar";
+  import News from "./components/News";
+  import Fooder from "./components/Fooder";
   export default {
     name: 'App',
+
+  components: { Navbar,News,Fooder},
 
   }
 </script>
