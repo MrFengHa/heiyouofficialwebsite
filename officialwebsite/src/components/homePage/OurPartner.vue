@@ -35,7 +35,7 @@ export default {
     name: "OurPartner",
     data(){
       return{
-        ourList:[ baseUrl+"ourPartner/PAGE1.jpg",baseUrl+"ourPartner/PAGE2.jpg",baseUrl+"ourPartner/PAGE3.jpg"]
+        ourList:[ baseUrl+"show/ourPartner/PAGE1.jpg",baseUrl+"show/ourPartner/PAGE2.jpg",baseUrl+"show/ourPartner/PAGE3.jpg"]
       }
     }
   }
