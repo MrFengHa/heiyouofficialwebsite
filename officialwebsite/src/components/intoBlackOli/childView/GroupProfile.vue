@@ -104,8 +104,10 @@
       }
 
     },
-    created() {
-    },
+
+  created() {
+    this.$store.commit('setIntoBlackOilPage',0)
+  }
 
   }
 </script>

@@ -1,8 +1,8 @@
 <template>
   <div class="game163" style="margin:0 auto">
 
-    <el-carousel class="bigImg" height="600px"  direction="vertical" :autoplay="false">
-      <el-carousel-item v-for="item in imageArray" :key="item" >
+    <el-carousel class="bigImg" height="600px"  direction="vertical" :autoplay="true">
+      <el-carousel-item v-for="item in imageArray" :key="item.imagePath" >
        <img :src=item.imagePath>
         <h4 align="center">{{item.imageTitle}}</h4>
       </el-carousel-item>
@@ -36,6 +36,9 @@
         ],
 
       }
+    },
+    created() {
+      this.$store.commit('setIntoBlackOilPage',1)
     }
   }
 </script>
