@@ -28,7 +28,7 @@
           {name: "企业环境", hrefPath: "#/intoBlackOli/enterpriseEnvironment"},
           {name: "团队建设", hrefPath: "#/intoBlackOli/teamBuilding"},
           {name: "董事长介绍", hrefPath: "#/intoBlackOli/ChairmanInformation"},
-          {name: "精英智库", hrefPath: "#"},
+          {name: "精英智库", hrefPath: "#/intoBlackOli/EliteThinkTank"},
           {name: "客户见证", hrefPath: "#"},
         ],
 

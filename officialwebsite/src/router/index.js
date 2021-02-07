@@ -6,6 +6,7 @@ import GroupProfile from "../components/intoBlackOli/childView/GroupProfile";
 import EnterpriseEnvironment from "../components/intoBlackOli/childView/EnterpriseEnvironment";
 import TeamBuilding from "../components/intoBlackOli/childView/TeamBuilding";
 import ChairmanInformation from "../components/intoBlackOli/childView/ChairmanInformation";
+import EliteThinkTank from "../components/intoBlackOli/childView/EliteThinkTank";
 Vue.use(Router)
 
 export default new Router({
@@ -18,6 +19,7 @@ export default new Router({
         {path: "/intoBlackOli/enterpriseEnvironment", component: EnterpriseEnvironment},
         {path: "/intoBlackOli/teamBuilding", component: TeamBuilding},
         {path: "/intoBlackOli/ChairmanInformation", component: ChairmanInformation},
+        {path: "/intoBlackOli/EliteThinkTank", component: EliteThinkTank},
       ]
     }
   ]
