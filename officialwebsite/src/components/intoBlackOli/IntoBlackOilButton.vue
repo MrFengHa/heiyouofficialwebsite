@@ -4,8 +4,11 @@
                                       alt="走进黑油">
       <ul class="nav_zoujin">
         <li v-for="(item,index) in buttonValue" :key="index"><a :href="item.hrefPath" :title="item.name"
-                                                                @mouseover="setTab(index)"
-                                                                :class="currentIndex==index?'hover':'' ">{{item.name}}</a>
+                                                                @mouseover="hoverSetTab(index)"
+                                                                @click="clickSetTab(index)"
+                                                                @mouseout="remSetHab(index)"
+                                                                :class="$store.getters.getIntoBlackOilPageNum==index||currentIndex==index?'hover':'' "
+                                                                >{{item.name}}</a>
         </li>
       </ul>
     </div>
@@ -33,9 +36,28 @@
       }
     },
     methods: {
-      setTab(index) {
+      /**
+       * 鼠标悬浮在标签上
+       * @param index
+       */
+      hoverSetTab(index) {
         this.currentIndex = index;
+      },
+      /**
+       * 鼠标点击标签
+       * @param index
+       */
+      clickSetTab(index){
+        this.$store.commit('setIntoBlackOilPage',index)
+      },
+
+      /**
+       * 鼠标离开标签
+       */
+      remSetHab(){
+        this.currentIndex =99;
       }
+
     }
   }
 </script>

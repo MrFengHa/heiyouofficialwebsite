@@ -10,7 +10,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item href="/">首页</b-nav-item>
-          <b-nav-item href="#/intoBlackOli">走进黑油</b-nav-item>
+          <b-nav-item href="#/intoBlackOli/groupProfile">走进黑油</b-nav-item>
           <b-nav-item href="#">集团业务</b-nav-item>
           <b-nav-item href="#">公司新闻</b-nav-item>
           <b-nav-item href="#">上市公司</b-nav-item>
