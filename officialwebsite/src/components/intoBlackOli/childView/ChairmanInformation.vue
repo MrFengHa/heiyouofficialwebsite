@@ -97,6 +97,9 @@
           baseUrl+"show/intoBlackOli/IntoBlackOil/ChairmanInformation/lifeArray/7.jpg",
         ]
       }
+    },
+    created() {
+      this.$store.commit('setIntoBlackOilPage',3)
     }
   }
 </script>
