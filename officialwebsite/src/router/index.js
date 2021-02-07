@@ -4,6 +4,7 @@ import HomePage from "../components/homePage/HomePage";
 import IntoBlackOil from "../components/intoBlackOli/IntoBlackOil";
 import GroupProfile from "../components/intoBlackOli/childView/GroupProfile";
 import EnterpriseEnvironment from "../components/intoBlackOli/childView/EnterpriseEnvironment";
+import TeamBuilding from "../components/intoBlackOli/childView/TeamBuilding";
 Vue.use(Router)
 
 export default new Router({
@@ -14,6 +15,7 @@ export default new Router({
       children: [
         {path: "/intoBlackOli/groupProfile", component: GroupProfile},
         {path: "/intoBlackOli/enterpriseEnvironment", component: EnterpriseEnvironment},
+        {path: "/intoBlackOli/teamBuilding", component: TeamBuilding},
       ]
     }
   ]
