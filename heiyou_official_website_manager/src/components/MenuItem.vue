@@ -42,6 +42,17 @@
 
     </el-submenu>
 
+    <el-submenu index="/intoBlackOil/">
+      <template slot="title">
+        <i class="el-icon-s-check"></i>
+        <span>走进黑油</span>
+      </template>
+      <el-menu-item v-for="(item,i) in customerWitnessList" :key="i" :index="item.path" >
+        {{item.menuName}}
+      </el-menu-item>
+
+    </el-submenu>
+
   </el-menu>
 </template>
 
@@ -62,6 +73,10 @@
         newsList: [
           {path: "/newsType/newsTypeList", menuName: "新闻类型列表"},
           {path: "/news/newsList", menuName: "新闻列表"}
+        ],
+
+        customerWitnessList: [
+          {path: "/intoBlack/customerWitnessList", menuName: "客户见证"},
         ],
 
 

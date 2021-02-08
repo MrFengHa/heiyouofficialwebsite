@@ -11,6 +11,8 @@ import NewTypeManager from "../components/news/newsType/NewTypeManager";
 import NewsList from "../components/news/news/NewsList";
 import NewsManager from "../components/news/news/NewsManager";
 import NewsSee from "../components/news/news/NewsSee";
+import CustomerWitnessList from "../components/intoBlackOil/customerWiteness/CustomerWitnessList";
+import CustomerWitnessManager from "../components/intoBlackOil/customerWiteness/CustomerWitnessManager";
 Vue.use(Router)
 
 export default new Router({
@@ -31,6 +33,9 @@ export default new Router({
         {path: "/news/newsList", component: NewsList},
         {path: "/news/newsToAdd", component: NewsManager},
         {path: "/news/newsSee/:news_Id", component: NewsSee},
+
+        {path: "/intoBlack/customerWitnessList", component: CustomerWitnessList},
+        {path: "/intoBlackOil/customerWitnessToAdd", component: CustomerWitnessManager},
       ]
     }
   ]

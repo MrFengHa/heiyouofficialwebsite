@@ -18,4 +18,16 @@ public interface IntoBlackOilCustomerWitnessMapper {
      * @return
      */
     List<CustomerWitness> selectAll();
+
+    /**
+     * 保存客户见证
+     * @param customerWitness
+     */
+    void insertCustomerWitness(CustomerWitness customerWitness);
+
+    /**
+     * 删除客户见证信息
+     * @param customerWitness_id
+     */
+    void deleteCustomerWitness(Integer customerWitness_id);
 }

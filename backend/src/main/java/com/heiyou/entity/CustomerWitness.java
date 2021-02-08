@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * 客户见证实体类
@@ -33,6 +33,6 @@ public class CustomerWitness {
     @ApiModelProperty("客户见证描述")
     private String customerWitness_Desc;
     @ApiModelProperty(value = "客户见证创建时间")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="GMT+8")
-    private Timestamp customerWitness_CreateTime;
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    private Date customerWitness_CreateTime;
 }

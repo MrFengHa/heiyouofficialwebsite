@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heiyou.mapper.IntoBlackOilCustomerWitnessMapper">
-
-    <insert id="insertNews" parameterType="com.heiyou.entity.News">
-        insert into t_news(news_Id, news_Title, news_CoverUrl, news_Content, news_Desc, newsType_id ,news_CreateTime)
-        values
-        (
-         #{news_Id},#{news_Title},#{news_CoverUrl},#{news_Content},#{news_Desc},#{newsType_id},#{news_CreateTime}
-        )
+    <insert id="insertCustomerWitness" parameterType="com.heiyou.entity.CustomerWitness">
+        insert into t_customerWitness(customerWitness_Id, customerWitness_Title, customerWitness_CoverUrl,
+                                      customerWitness_Content, customerWitness_CreateTime)
+        values (#{customerWitness_Id}, #{customerWitness_Title}, #{customerWitness_CoverUrl},
+                #{customerWitness_Content}, #{customerWitness_CreateTime})
     </insert>
+    <delete id="deleteCustomerWitness" parameterType="integer">
+        delete
+        from t_customerWitness
+        where customerWitness_Id = #{customerWitness_Id}
+    </delete>
 
     <select id="selectAll" resultType="com.heiyou.entity.CustomerWitness">
-        select * from t_customerWitness
-    </select>
-    <select id="selectById" resultMap="newsMap" parameterType="integer">
-        select news_Id,news_Title,news_CoverUrl,news_Content,news_Desc,news.newsType_id,news_CreateTime,newsType_name,newsType_desc
-        from t_news news,t_newsType newsType where news.newsType_id=newsType.newsType_id and news.news_Id=#{news_id};
-    </select>
-    <select id="selectNewsByNewsType" resultMap="newsMap" parameterType="string">
-        select news_Id,news_Title,news_CoverUrl,news_Content,news_Desc,news.newsType_id,news_CreateTime,newsType_name,newsType_desc
-        from t_news news,t_newsType newsType where news.newsType_id=newsType.newsType_id and newsType.newsType_name=#{newsTypeName};
+        select *
+        from t_customerWitness
     </select>
 </mapper>
