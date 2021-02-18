@@ -5,7 +5,7 @@
         insert into t_customerWitness(customerWitness_Id, customerWitness_Title, customerWitness_CoverUrl,
                                       customerWitness_Content, customerWitness_CreateTime)
         values (#{customerWitness_Id}, #{customerWitness_Title}, #{customerWitness_CoverUrl},
-                #{customerWitness_Content}, #{customerWitness_CreateTime})
+                #{customerWitness_Content} , #{customerWitness_CreateTime})
     </insert>
     <delete id="deleteCustomerWitness" parameterType="integer">
         delete
