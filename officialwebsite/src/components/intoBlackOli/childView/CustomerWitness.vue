@@ -10,11 +10,11 @@
 
     <div class="ej_xzdt_tj" style="margin-top:50px;">
       <ul>
-        <li v-for="(item,index) in customerWitnesses" :key="index"><a href="/view-39.html" title="虎口夺食">
+        <li v-for="(item,index) in customerWitnesses" :key="index"><a :href="'#/intoBlackOilCustomerWitness/showArticle?customerWitness_Id='+item.customerWitness_Id" :title="item.customerWitness_Title">
           <!--          :class="index%2==0?'write':''"-->
           <img :src="baseUrlPath+item.customerWitness_CoverUrl" width="430"
                height="190" :alt="item.customerWitness_Title"></a>
-          <div class="rf_wz"><p><a href="/view-39.html" :title="item.customerWitness_Title" class="f-666 f14 f-wh">{{item.customerWitness_Title}}</a>
+          <div class="rf_wz"><p><a :href="'#/intoBlackOilCustomerWitness/showArticle?customerWitness_Id='+item.customerWitness_Id" :title="item.customerWitness_Title" class="f-666 f14 f-wh">{{item.customerWitness_Title}}</a>
           </p>
             <p style="font-size: 12px">新闻来源： | {{item.customerWitness_CreateTime}}</p>
             <p class="clear10 line-18 f-999" v-html="item.customerWitness_Content">
@@ -49,8 +49,7 @@
     created() {
       let _this = this;
       this.$http.get("intoBlackOilCustomerWitness/getAllCustomerWitness").then(res => {
-        _this.customerWitnesses = res.data.data.customerWitnesses
-        console.log(res.data.data.customerWitnesses)
+        _this.customerWitnesses = res.data.data.customerWitnesses;
       })
 
 
@@ -129,14 +128,10 @@
   p {
     font-size: 12px;
 
-    line-height: 20px;
     height: 50px; /* 是line-height的三倍bai，如du果设置了padding属性，也要zhi加dao上padding的高度*/
     overflow: hidden;
   }
 
-  p:after {
-    content: "...";
-  }
 
   .f-wh {
     font-weight: 700;
@@ -157,6 +152,10 @@
   .clear10 {
     margin-top: 10px;
     overflow: hidden;
+  }
+
+  .clear10 p:after {
+    content: "...";
   }
 
   * {

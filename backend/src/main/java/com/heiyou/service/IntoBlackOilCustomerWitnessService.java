@@ -45,4 +45,11 @@ public interface IntoBlackOilCustomerWitnessService {
      * @return
      */
     boolean deleteCustomerWitness(CustomerWitness customerWitness);
+
+    /**
+     * 根据客户见证ID查询文章
+     * @param customerWitness_id
+     * @return
+     */
+    CustomerWitness findById(Integer customerWitness_id);
 }

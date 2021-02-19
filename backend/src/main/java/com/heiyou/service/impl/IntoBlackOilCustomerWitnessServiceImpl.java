@@ -127,4 +127,14 @@ public class IntoBlackOilCustomerWitnessServiceImpl implements IntoBlackOilCusto
         }
 
     }
+
+    /**
+     * 根据客户见证ID查询文章
+     * @param customerWitness_id
+     * @return
+     */
+    @Override
+    public CustomerWitness findById(Integer customerWitness_id) {
+       return intoBlackOilCustomerWitnessMapper.findById(customerWitness_id);
+    }
 }

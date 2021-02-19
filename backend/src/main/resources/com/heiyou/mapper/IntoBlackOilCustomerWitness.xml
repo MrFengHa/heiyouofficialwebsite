@@ -17,4 +17,8 @@
         select *
         from t_customerWitness
     </select>
+
+    <select id="findById" resultType="com.heiyou.entity.CustomerWitness">
+        select * from t_customerWitness where customerWitness_Id = #{customerWitness_Id}
+    </select>
 </mapper>

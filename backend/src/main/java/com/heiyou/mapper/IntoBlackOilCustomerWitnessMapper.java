@@ -30,4 +30,11 @@ public interface IntoBlackOilCustomerWitnessMapper {
      * @param customerWitness_id
      */
     void deleteCustomerWitness(Integer customerWitness_id);
+
+    /**
+     * 根据id查询文章信息
+     * @param customerWitness_id
+     * @return
+     */
+    CustomerWitness findById(Integer customerWitness_id);
 }

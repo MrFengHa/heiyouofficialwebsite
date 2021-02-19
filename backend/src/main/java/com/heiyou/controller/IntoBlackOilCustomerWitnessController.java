@@ -1,7 +1,6 @@
 package com.heiyou.controller;
 
 import com.heiyou.entity.CustomerWitness;
-import com.heiyou.entity.News;
 import com.heiyou.service.IntoBlackOilCustomerWitnessService;
 import com.heiyou.utils.Message;
 import io.swagger.annotations.Api;
@@ -80,5 +79,15 @@ public class IntoBlackOilCustomerWitnessController {
         }
 
     }
+    @ApiOperation("根据ID查询客户见证文章信息")
+    @GetMapping("findArticleById")
+    public Message findArticleById(Integer customerWitness_Id){
+        if (customerWitness_Id==null){
+            throw new RuntimeException("没有传入文章ID");
+        }
+        CustomerWitness customerWitness = intoBlackOilCustomerWitnessService.findById(customerWitness_Id);
+        return Message.ok().data("customerWitness",customerWitness);
+    }
+
 
 }
