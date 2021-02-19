@@ -37,4 +37,10 @@ public interface IntoBlackOilCustomerWitnessMapper {
      * @return
      */
     CustomerWitness findById(Integer customerWitness_id);
+
+    /**
+     * 修改文章信息
+     * @param customerWitness
+     */
+    void updateCustomerWitness(CustomerWitness customerWitness);
 }

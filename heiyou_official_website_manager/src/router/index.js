@@ -36,6 +36,7 @@ export default new Router({
 
         {path: "/intoBlack/customerWitnessList", component: CustomerWitnessList},
         {path: "/intoBlackOil/customerWitnessToAdd", component: CustomerWitnessManager},
+        {path: "/intoBlackOil/customerWitnessToUpdate/:customerWitness_Id", component: CustomerWitnessManager},
       ]
     }
   ]

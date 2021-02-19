@@ -73,7 +73,7 @@
 
       <el-form-item>
         <el-button type="primary" @click="submitForm('formValue')" v-if="!isUpdate">{{buttonTitle}}</el-button>
-        <el-button type="primary" @click="updateExhibits('formValue')" v-if="isUpdate">{{buttonTitle}}</el-button>
+        <el-button type="primary" @click="update('formValue')" v-if="isUpdate">{{buttonTitle}}</el-button>
         <el-button @click="resetForm('formValue')">重置</el-button>
       </el-form-item>
     </el-form>
@@ -355,12 +355,37 @@
         });
       },
 
-      updateExhibits(formName) {
-        console.log(this.formValue)
+      update(formName) {
         let _this = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$http.post("newsType/updateNewsType", this.formValue).then(res => {
+            let data = new FormData();
+            if ( this.fileList.length>0){
+              data.append("coverImage", this.fileList[0].raw);
+            }
+
+            for (let key in this.formValue) {
+
+                if (key=="customerWitness_CreateTime"){
+                 this.formValue[key] = new Date(this.formValue[key]);
+                }
+              data.append(key, this.formValue[key])
+            }
+            const _loading = loading(`文件上传中，请稍后...`)
+
+            // this.show_progress = true
+            const config = {
+              onUploadProgress: progressEvent => {
+                // progressEvent.loaded:已上传文件大小
+                // progressEvent.total:被上传文件的总大小
+                this.progressPercent = Number((progressEvent.loaded / progressEvent.total * 100).toFixed(0))
+                _loading.setText('文件上传中，进度：' + this.progressPercent + "%") //更新dialog进度，优化体验
+              },
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              }
+            }
+            this.$http.post("intoBlackOilCustomerWitness/updateCustomerWitness", data, config).then(res => {
               if (res.data.success == true) {
 
                 this.$message({
@@ -368,8 +393,11 @@
                     type: 'success',
                   }
                 );
+                _loading.close(); // 关闭加载框
+                // this.show_progress = false
+                this.progressPercent = 0
                 setTimeout(function () {
-
+                  _this.fileList = []//情况附件
                   _this.to();
 
                 }, 100)
@@ -393,10 +421,14 @@
 
     },
     created() {
-
+      let _this = this;
       if (this.$route.params.customerWitness_Id != null) {
         this.buttonTitle = "更新";
         this.isUpdate = true;
+
+        this.$http.get("intoBlackOilCustomerWitness/findArticleById?customerWitness_Id=" + this.$route.params.customerWitness_Id).then(res => {
+          _this.formValue = res.data.data.customerWitness;
+        })
       }
     },
     mounted() {

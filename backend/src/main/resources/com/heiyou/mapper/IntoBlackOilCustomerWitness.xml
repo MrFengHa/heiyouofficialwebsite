@@ -7,6 +7,12 @@
         values (#{customerWitness_Id}, #{customerWitness_Title}, #{customerWitness_CoverUrl},
                 #{customerWitness_Content} , #{customerWitness_CreateTime})
     </insert>
+    <update id="updateCustomerWitness" >
+        update t_customerWitness set customerWitness_Title=#{customerWitness_Title},
+                                     customerWitness_CreateTime=#{customerWitness_CreateTime},
+                                     customerWitness_Content = #{customerWitness_Content}
+        where customerWitness_Id = #{customerWitness_Id}
+    </update>
     <delete id="deleteCustomerWitness" parameterType="integer">
         delete
         from t_customerWitness

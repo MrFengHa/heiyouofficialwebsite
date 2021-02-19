@@ -88,6 +88,16 @@ public class IntoBlackOilCustomerWitnessController {
         CustomerWitness customerWitness = intoBlackOilCustomerWitnessService.findById(customerWitness_Id);
         return Message.ok().data("customerWitness",customerWitness);
     }
+    @ApiOperation("修改客户见证信息")
+    @PostMapping("updateCustomerWitness")
+    public Message updateCustomerWitness(CustomerWitness customerWitness,  MultipartFile coverImage) {
 
+        if (intoBlackOilCustomerWitnessService.update(customerWitness,coverImage)){
+            return Message.ok();
+        }else {
+            return Message.error();
+        }
+
+    }
 
 }

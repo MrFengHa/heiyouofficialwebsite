@@ -137,4 +137,34 @@ public class IntoBlackOilCustomerWitnessServiceImpl implements IntoBlackOilCusto
     public CustomerWitness findById(Integer customerWitness_id) {
        return intoBlackOilCustomerWitnessMapper.findById(customerWitness_id);
     }
+
+    /**
+     * 更新文章信息
+     *
+     * @param customerWitness
+     * @param coverImage
+     * @return
+     */
+    @Override
+    public boolean update(CustomerWitness customerWitness, MultipartFile coverImage) {
+        //客户见证存放的文件夹
+        String customerWitnessDir = "intoBlackOil/CustomerWitness";
+        //当前客户见证的文件夹
+        String currentDir = customerWitness.getCustomerWitness_Title();
+        //封面的文件名
+        String coverImageFile = "coverImage.jpg";
+        //文件要存放在本机的绝对路径
+        File tempFile = new File(serviceResPath + "/" + customerWitnessDir + "/" + currentDir + "/");
+        try {
+            if (coverImage!=null){
+                coverImage.transferTo(new File(tempFile + "/" + coverImageFile));
+            }
+            //保存到数据库中的地址
+            intoBlackOilCustomerWitnessMapper.updateCustomerWitness(customerWitness);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

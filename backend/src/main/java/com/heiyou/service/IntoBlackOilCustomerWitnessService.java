@@ -52,4 +52,12 @@ public interface IntoBlackOilCustomerWitnessService {
      * @return
      */
     CustomerWitness findById(Integer customerWitness_id);
+
+    /**
+     * 更新文章信息
+     * @param customerWitness
+     * @param coverImage
+     * @return
+     */
+    boolean update(CustomerWitness customerWitness, MultipartFile coverImage);
 }

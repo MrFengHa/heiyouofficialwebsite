@@ -1,7 +1,7 @@
 <template>
   <div class="mainbox">
     <div class="block">
-      <el-carousel height="563px">
+      <el-carousel height="563px" arrow="never">
         <el-carousel-item v-for="item in lifeImageArray" :key="item">
           <img :src="item" style="width: 100%">
         </el-carousel-item>
@@ -51,6 +51,8 @@
       this.$http.get("intoBlackOilCustomerWitness/getAllCustomerWitness").then(res => {
         _this.customerWitnesses = res.data.data.customerWitnesses;
       })
+
+
 
 
     }

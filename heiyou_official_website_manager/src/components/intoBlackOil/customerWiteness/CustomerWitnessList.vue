@@ -73,7 +73,7 @@
       },
 
       handleEdit(index, row) {
-        this.$router.push({path: "/newsType/newsTypeToUpdate/" + row.newsType_id});
+        this.$router.push({path: "/intoBlackOil/customerWitnessToUpdate/" + row.customerWitness_Id});
 
       },
       handleDelete(index, row) {
@@ -99,7 +99,7 @@
         this.$router.push({path: "/intoBlackOil/customerWitnessToAdd"});
       },
       seeNews(index, row) {
-        this.$router.push({path: "/news/newsSee/" + row.customerWitness_Id});
+        this.$router.push({path: "/intoBlackOil/customerWitnessArticleSee/" + row.customerWitness_Id});
       }
     },
     created() {
